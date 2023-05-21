@@ -1,5 +1,5 @@
 {
-  "name": "i18n-strings-files",
+  "name": "@l10nmonster/i18n-strings-files",
   "version": "3.0.0",
   "main": "./index.js",
   "description": "Process .strings files used for localization in iOS/OSX development",
