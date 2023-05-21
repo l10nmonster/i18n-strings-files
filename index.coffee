@@ -1,6 +1,4 @@
 fs = require('fs')
-Iconv  = require('iconv').Iconv
-
 
 i18nStringsFiles = ->
 
@@ -83,19 +81,17 @@ i18nStringsFiles.prototype.writeFileSync = (file, data, options) ->
 
 
 i18nStringsFiles.prototype.convertBufferToString = (buffer, encoding) ->
-  # if no encoding is passed in, default to utf-16 (as recommended by Apple)
-  if !encoding then encoding = 'UTF-16'
+  # if no encoding is passed in, default to utf-8
+  if !encoding then encoding = 'utf8'
   # convert buffer to utf-8 string and return
-  iconv = new Iconv(encoding, 'UTF-8')
-  return iconv.convert(buffer).toString('utf8')
+  return buffer.toString(encoding)
 
 
 i18nStringsFiles.prototype.convertStringToBuffer = (str, encoding) ->
-  # if no encoding is passed in, default to utf-16 (as recommended by Apple)
-  if !encoding then encoding = 'UTF-16'
+  # if no encoding is passed in, default to utf-8
+  if !encoding then encoding = 'utf8'
   # convert string from utf-8 to buffer in output encoding
-  iconv = new Iconv('UTF-8', encoding)
-  return iconv.convert(str)
+  return Buffer.from(str, encoding)
 
 
 i18nStringsFiles.prototype.parse = (input, wantsComments) ->

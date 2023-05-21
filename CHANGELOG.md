@@ -2,6 +2,9 @@ CHANGELOG for i18n-strings-files
 ==================
 This changelog references changes made to the i18n-strings-files package beginning after v0.0.4.
 
+* v3.0.0 (2023-05-20)
+ * Remove iconv dependency and support for all flavors of utf-16
+
 * v2.0.0 (2022-06-07)
  * Bump dependencies + iconv version
  * Require Node v14+
